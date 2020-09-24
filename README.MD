@@ -13,7 +13,7 @@ const secondRow = 'собака друг человека';
 
 function getRow(firstRow, secondRow) {
 }
-console.log(getRow(firstRow, secondRow)); _// _мама _мыла _раму_
+console.log(getRow(firstRow, secondRow)); // _мама мыла раму_
 
 ### Задание под *
 * можешь сделать программу интерактивной, используя команды prompt() и alert().
@@ -40,7 +40,7 @@ console.log(getRow(firstRow, secondRow)); _// _мама _мыла _раму_
 
 function formattedPhone(phone) {
 }
-console.log(formattedPhone('+71234567890')); _// _+7 _(123) _456-78-90_
+console.log(formattedPhone('+71234567890')); // _+7 (123) 456-78-90_
 
 ### Задание под *
 * можешь сделать программу интерактивной, используя команды prompt() и alert()

@@ -25,7 +25,6 @@ function getRow(firstRow, secondRow) {
 }
 alert(getRow(firstRow, secondRow));
 
-
 const phone = prompt("Введите номер телефона");
 
 function formattedPhone(phone) {
@@ -42,33 +41,29 @@ function formattedPhone(phone) {
       } else if (i === 10) {
         result += "-" + phone.charAt(i);
       } else result += phone.charAt(i);
-    }
-    else if (phone.length === 11) {
-            if (i === 0) {
-              result += '+' + "7" + ' ' + "(";
-            } else if (i === 4) {
-              result += ")" + " " + phone.charAt(i);
-            } else if (i === 7) {
-              result += "-" + phone.charAt(i);
-            } else if (i === 9) {
-              result += "-" + phone.charAt(i);
-            } else result += phone.charAt(i);
-    }
-      else if (phone.length === 10) {
-        if (i === 0) {
-          result += "+" + "7" + " " + "(" + phone.charAt(i);
-        } else if (i === 3) {
-          result += ")" + " " + phone.charAt(i);
-        } else if (i === 6) {
-          result += "-" + phone.charAt(i);
-        } else if (i === 8) {
-          result += "-" + phone.charAt(i);
-        } else result += phone.charAt(i);
-    }
-    else return "введите номер телефона в верном формате";
+    } else if (phone.length === 11) {
+      if (i === 0) {
+        result += "+" + "7" + " " + "(";
+      } else if (i === 4) {
+        result += ")" + " " + phone.charAt(i);
+      } else if (i === 7) {
+        result += "-" + phone.charAt(i);
+      } else if (i === 9) {
+        result += "-" + phone.charAt(i);
+      } else result += phone.charAt(i);
+    } else if (phone.length === 10) {
+      if (i === 0) {
+        result += "+" + "7" + " " + "(" + phone.charAt(i);
+      } else if (i === 3) {
+        result += ")" + " " + phone.charAt(i);
+      } else if (i === 6) {
+        result += "-" + phone.charAt(i);
+      } else if (i === 8) {
+        result += "-" + phone.charAt(i);
+      } else result += phone.charAt(i);
+    } else return "введите номер телефона в верном формате";
   }
   return result;
 }
 
-alert(formattedPhone(phone)); 
-
+alert(formattedPhone(phone));
