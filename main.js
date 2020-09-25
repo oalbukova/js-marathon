@@ -1,8 +1,8 @@
-const firstRow = "мама мыла раму";
-const secondRow = "собака друг человека";
-const letter = prompt("Введите букву");
+const firstRow = prompt("Введите первую фразу");
+const secondRow = prompt("Введите вторую фразу");
+const LETTER = prompt("Введите букву");
 
-function iteratorFunc(nameRow) {
+function iteratorFunc(nameRow, letter) {
   let count = 0;
   for (let i = 0; i <= nameRow.length; i++) {
     if (nameRow.charAt(i) === letter) {
@@ -13,14 +13,15 @@ function iteratorFunc(nameRow) {
 }
 
 function getRow(firstRow, secondRow) {
-  if (iteratorFunc(firstRow) === 0 && iteratorFunc(secondRow) === 0) {
-    return "этой буквы нет в данных фразах";
-  } else if (iteratorFunc(firstRow) === iteratorFunc(secondRow)) {
-    return "количество букв одинаково в обоих фразах";
+  let firstResult = iteratorFunc(firstRow, LETTER);
+  let secondResult = iteratorFunc(secondRow, LETTER);
+
+  if (firstResult === 0 && secondResult === 0) {
+    return "Буквы  "+ LETTER + " нет в данных фразах";
+  } else if (firstResult === secondResult) {
+    return "Количество букв " + LETTER + " одинаково в обоих фразах";
   } else {
-    return iteratorFunc(firstRow) > iteratorFunc(secondRow)
-      ? firstRow
-      : secondRow;
+    return firstResult > secondResult ? firstRow : secondRow;
   }
 }
 alert(getRow(firstRow, secondRow));
@@ -61,7 +62,7 @@ function formattedPhone(phone) {
       } else if (i === 8) {
         result += "-" + phone.charAt(i);
       } else result += phone.charAt(i);
-    } else return "введите номер телефона в верном формате";
+    } else return "Введите номер телефона в верном формате";
   }
   return result;
 }
