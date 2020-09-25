@@ -31,7 +31,7 @@ function formattedPhone(phone) {
   let result = "";
 
   for (let i = 0; i <= phone.length; i++) {
-    if (phone.length === 12) {
+    if (phone.length === 12 && typeof phone.charAt(i) === "number") {
       if (i === 1) {
         result += phone.charAt(i) + " " + "(";
       } else if (i === 5) {
@@ -41,7 +41,7 @@ function formattedPhone(phone) {
       } else if (i === 10) {
         result += "-" + phone.charAt(i);
       } else result += phone.charAt(i);
-    } else if (phone.length === 11) {
+    } else if (phone.length === 11 && typeof phone.charAt(i) === "number") {
       if (i === 0) {
         result += "+" + "7" + " " + "(";
       } else if (i === 4) {
@@ -51,7 +51,7 @@ function formattedPhone(phone) {
       } else if (i === 9) {
         result += "-" + phone.charAt(i);
       } else result += phone.charAt(i);
-    } else if (phone.length === 10) {
+    } else if (phone.length === 10 && typeof phone.charAt(i) === "number") {
       if (i === 0) {
         result += "+" + "7" + " " + "(" + phone.charAt(i);
       } else if (i === 3) {
