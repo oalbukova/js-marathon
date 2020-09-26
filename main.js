@@ -1,70 +1,59 @@
-const firstRow = prompt("Введите первую фразу");
-const secondRow = prompt("Введите вторую фразу");
-const LETTER = prompt("Введите букву");
+const $btn = document.getElementById(('btn-kick'));
 
-function iteratorFunc(nameRow, letter) {
-  let count = 0;
-  for (let i = 0; i <= nameRow.length; i++) {
-    if (nameRow.charAt(i) === letter) {
-      count++;
-    }
-  }
-  return count;
+const character = {
+  name: 'Picachu',
+  defaultHP: 100,
+  damageHP: 100,
+  elHP: document.getElementById('health-character'),
+  elProgressbar: document.getElementById('progressbar-character')
 }
 
-function getRow(firstRow, secondRow) {
-  let firstResult = iteratorFunc(firstRow, LETTER);
-  let secondResult = iteratorFunc(secondRow, LETTER);
+const enemy = {
+  name: 'Charmander',
+  defaultHP: 100,
+  damageHP: 100,
+  elHP: document.getElementById('health-enemy'),
+  elProgressbar: document.getElementById('progressbar-enemy')
+}
 
-  if (firstResult === 0 && secondResult === 0) {
-    return "Буквы  "+ LETTER + " нет в данных фразах";
-  } else if (firstResult === secondResult) {
-    return "Количество букв " + LETTER + " одинаково в обоих фразах";
+$btn.addEventListener('click', function () {
+  console.log('Kick');
+  changeHP(random(20), character);
+  changeHP(random(20), enemy);
+});
+
+function init(person) {
+  console.log('Start Game!');
+  renderHP(character);
+  renderHP(enemy);
+}
+
+function renderHP(person) {
+  renderHPLife(person);
+  renderProgressbarHP(person);
+}
+
+function renderHPLife(person) {
+  person.elHP.innerText = person.damageHP + '/' + person.defaultHP;
+}
+
+function renderProgressbarHP(person) {
+  person.elProgressbar.style.width = person.damageHP + '%';
+}
+
+function changeHP(count, person) {
+  if (person.damageHP < count) {
+    person.damageHP = 0;
+    alert('Бедный ' + person.name + ' проиграл бой')
+    $btn.disabled = true;
   } else {
-    return firstResult > secondResult ? firstRow : secondRow;
+    person.damageHP -= count;
   }
-}
-alert(getRow(firstRow, secondRow));
-
-const phone = prompt("Введите номер телефона");
-
-function formattedPhone(phone) {
-  let result = "";
-
-  for (let i = 0; i <= phone.length; i++) {
-    if (phone.length === 12 && typeof phone.charAt(i) === "number") {
-      if (i === 1) {
-        result += phone.charAt(i) + " " + "(";
-      } else if (i === 5) {
-        result += ")" + " " + phone.charAt(i);
-      } else if (i === 8) {
-        result += "-" + phone.charAt(i);
-      } else if (i === 10) {
-        result += "-" + phone.charAt(i);
-      } else result += phone.charAt(i);
-    } else if (phone.length === 11 && typeof phone.charAt(i) === "number") {
-      if (i === 0) {
-        result += "+" + "7" + " " + "(";
-      } else if (i === 4) {
-        result += ")" + " " + phone.charAt(i);
-      } else if (i === 7) {
-        result += "-" + phone.charAt(i);
-      } else if (i === 9) {
-        result += "-" + phone.charAt(i);
-      } else result += phone.charAt(i);
-    } else if (phone.length === 10 && typeof phone.charAt(i) === "number") {
-      if (i === 0) {
-        result += "+" + "7" + " " + "(" + phone.charAt(i);
-      } else if (i === 3) {
-        result += ")" + " " + phone.charAt(i);
-      } else if (i === 6) {
-        result += "-" + phone.charAt(i);
-      } else if (i === 8) {
-        result += "-" + phone.charAt(i);
-      } else result += phone.charAt(i);
-    } else return "Введите номер телефона в верном формате";
-  }
-  return result;
+  renderHP(person);
 }
 
-alert(formattedPhone(phone));
+function random(num) {
+  return Math.ceil(Math.random() * num)
+}
+
+init();
