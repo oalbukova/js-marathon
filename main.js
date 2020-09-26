@@ -1,4 +1,5 @@
-const $btn = document.getElementById(('btn-kick'));
+const $btnKickJolt = document.getElementById(('btn-kick-jolt'));
+const $btnKickBolt = document.getElementById(('btn-kick-bolt'));
 
 const character = {
   name: 'Picachu',
@@ -16,13 +17,7 @@ const enemy = {
   elProgressbar: document.getElementById('progressbar-enemy')
 }
 
-$btn.addEventListener('click', function () {
-  console.log('Kick');
-  changeHP(random(20), character);
-  changeHP(random(20), enemy);
-});
-
-function init(person) {
+function init() {
   console.log('Start Game!');
   renderHP(character);
   renderHP(enemy);
@@ -41,11 +36,16 @@ function renderProgressbarHP(person) {
   person.elProgressbar.style.width = person.damageHP + '%';
 }
 
+function buttonDisabled() {
+  $btnKickJolt.disabled = true;
+  $btnKickBolt.disabled = true;
+}
+
 function changeHP(count, person) {
   if (person.damageHP < count) {
     person.damageHP = 0;
     alert('Бедный ' + person.name + ' проиграл бой')
-    $btn.disabled = true;
+    buttonDisabled();
   } else {
     person.damageHP -= count;
   }
@@ -55,5 +55,14 @@ function changeHP(count, person) {
 function random(num) {
   return Math.ceil(Math.random() * num)
 }
+
+function setEventListener(num) {
+  console.log('Kick');
+  changeHP(random(num), character);
+  changeHP(random(num), enemy);
+}
+
+$btnKickJolt.addEventListener('click', () => setEventListener(15));
+$btnKickBolt.addEventListener('click', () => setEventListener(25));
 
 init();
