@@ -1,8 +1,9 @@
-const $btnKickJolt = document.getElementById(('btn-kick-jolt'));
-const $btnKickBolt = document.getElementById(('btn-kick-bolt'));
+const $btnKickJolt = document.getElementById('btn-kick-jolt');
+const $btnKickBolt = document.getElementById('btn-kick-bolt');
 
 const character = {
   name: 'Picachu',
+  img: document.querySelector('.character'),
   defaultHP: 100,
   damageHP: 100,
   elHP: document.getElementById('health-character'),
@@ -11,6 +12,7 @@ const character = {
 
 const enemy = {
   name: 'Charmander',
+  img: document.querySelector('.enemy'),
   defaultHP: 100,
   damageHP: 100,
   elHP: document.getElementById('health-enemy'),
@@ -46,6 +48,8 @@ function changeHP(count, person) {
     person.damageHP = 0;
     alert('Бедный ' + person.name + ' проиграл бой')
     buttonDisabled();
+    person.img.style.backgroundColor = 'red';
+
   } else {
     person.damageHP -= count;
   }
