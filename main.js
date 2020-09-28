@@ -46,10 +46,9 @@ function buttonDisabled() {
 function changeHP(count, person) {
   if (person.damageHP < count) {
     person.damageHP = 0;
+    person.img.style.backgroundColor = 'red';
     alert('Бедный ' + person.name + ' проиграл бой')
     buttonDisabled();
-    person.img.style.backgroundColor = 'red';
-
   } else {
     person.damageHP -= count;
   }
@@ -66,7 +65,9 @@ function setEventListener(num) {
   changeHP(random(num), enemy);
 }
 
+init();
+
 $btnKickJolt.addEventListener('click', () => setEventListener(15));
 $btnKickBolt.addEventListener('click', () => setEventListener(25));
 
-init();
+
