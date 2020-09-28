@@ -1,35 +1,48 @@
-const firstRow = "мама мыла раму";
-const secondRow = "собака друг человека";
-const letter = prompt("Введите букву");
+const $btnKickJolt = document.getElementById('btn-kick-jolt');
+const $btnKickBolt = document.getElementById('btn-kick-bolt');
 
-function iteratorFunc(nameRow) {
-  let count = 0;
-  for (let i = 0; i <= nameRow.length; i++) {
-    if (nameRow.charAt(i) === letter) {
-      count++;
-    }
-  }
-  return count;
+const character = {
+  name: 'Picachu',
+  img: document.querySelector('.character'),
+  defaultHP: 100,
+  damageHP: 100,
+  elHP: document.getElementById('health-character'),
+  elProgressbar: document.getElementById('progressbar-character')
 }
 
-function getRow(firstRow, secondRow) {
-  if (iteratorFunc(firstRow) === 0 && iteratorFunc(secondRow) === 0) {
-    return "этой буквы нет в данных фразах";
-  } else if (iteratorFunc(firstRow) === iteratorFunc(secondRow)) {
-    return "количество букв одинаково в обоих фразах";
-  } else {
-    return iteratorFunc(firstRow) > iteratorFunc(secondRow)
-      ? firstRow
-      : secondRow;
-  }
+const enemy = {
+  name: 'Charmander',
+  img: document.querySelector('.enemy'),
+  defaultHP: 100,
+  damageHP: 100,
+  elHP: document.getElementById('health-enemy'),
+  elProgressbar: document.getElementById('progressbar-enemy')
 }
-alert(getRow(firstRow, secondRow));
 
+<<<<<<< HEAD
 const phone = prompt("Введите номер телефона");
+=======
+function init() {
+  console.log('Start Game!');
+  renderHP(character);
+  renderHP(enemy);
+}
 
-function formattedPhone(phone) {
-  let result = "";
+function renderHP(person) {
+  renderHPLife(person);
+  renderProgressbarHP(person);
+}
+>>>>>>> 67a57b2c44b84ec3eb57bede8f4d0d8fccdd5b79
 
+function renderHPLife(person) {
+  person.elHP.innerText = person.damageHP + '/' + person.defaultHP;
+}
+
+function renderProgressbarHP(person) {
+  person.elProgressbar.style.width = person.damageHP + '%';
+}
+
+<<<<<<< HEAD
   for (let i = 0; i <= phone.length; i++) {
     if (phone.length === 12) {
       if (i === 1) {
@@ -62,8 +75,42 @@ function formattedPhone(phone) {
         result += "-" + phone.charAt(i);
       } else result += phone.charAt(i);
     } else return "введите номер телефона в верном формате";
-  }
-  return result;
+=======
+function buttonDisabled() {
+  $btnKickJolt.disabled = true;
+  $btnKickBolt.disabled = true;
 }
 
+function changeHP(count, person) {
+  if (person.damageHP < count) {
+    person.damageHP = 0;
+    person.img.style.backgroundColor = 'red';
+    alert('Бедный ' + person.name + ' проиграл бой')
+    buttonDisabled();
+  } else {
+    person.damageHP -= count;
+>>>>>>> 67a57b2c44b84ec3eb57bede8f4d0d8fccdd5b79
+  }
+  renderHP(person);
+}
+
+function random(num) {
+  return Math.ceil(Math.random() * num)
+}
+
+<<<<<<< HEAD
 alert(formattedPhone(phone));
+=======
+function setEventListener(num) {
+  console.log('Kick');
+  changeHP(random(num), character);
+  changeHP(random(num), enemy);
+}
+
+init();
+
+$btnKickJolt.addEventListener('click', () => setEventListener(15));
+$btnKickBolt.addEventListener('click', () => setEventListener(25));
+
+
+>>>>>>> 67a57b2c44b84ec3eb57bede8f4d0d8fccdd5b79
