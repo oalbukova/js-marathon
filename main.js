@@ -1,41 +1,49 @@
-const $btnKickJolt = document.getElementById('btn-kick-jolt');
-const $btnKickBolt = document.getElementById('btn-kick-bolt');
+const $btnKickJolt = document.getElementById("btn-kick-jolt");
+const $btnKickBolt = document.getElementById("btn-kick-bolt");
 
 const character = {
-  name: 'Picachu',
-  img: document.querySelector('.character'),
+  name: "Picachu",
+  img: document.querySelector(".character"),
   defaultHP: 100,
   damageHP: 100,
-  elHP: document.getElementById('health-character'),
-  elProgressbar: document.getElementById('progressbar-character')
-}
+  elHP: document.getElementById("health-character"),
+  elProgressbar: document.getElementById("progressbar-character"),
+  renderHPLife: renderHPLife,
+  renderProgressbarHP: renderProgressbarHP,
+  renderHP: renderHP,
+  changeHP: changeHP,
+};
 
 const enemy = {
-  name: 'Charmander',
-  img: document.querySelector('.enemy'),
+  name: "Charmander",
+  img: document.querySelector(".enemy"),
   defaultHP: 100,
   damageHP: 100,
-  elHP: document.getElementById('health-enemy'),
-  elProgressbar: document.getElementById('progressbar-enemy')
-}
+  elHP: document.getElementById("health-enemy"),
+  elProgressbar: document.getElementById("progressbar-enemy"),
+  renderHPLife: renderHPLife,
+  renderProgressbarHP: renderProgressbarHP,
+  renderHP: renderHP,
+  changeHP: changeHP,
+};
 
 function init() {
-  console.log('Start Game!');
-  renderHP(character);
-  renderHP(enemy);
+  console.log("Start Game!");
+  character.renderHP();
+  enemy.renderHP();
 }
 
-function renderHP(person) {
-  renderHPLife(person);
-  renderProgressbarHP(person);
+function renderHP() {
+  this.renderHPLife();
+  this.renderProgressbarHP();
 }
 
-function renderHPLife(person) {
-  person.elHP.innerText = person.damageHP + '/' + person.defaultHP;
+function renderHPLife() {
+  this.elHP.innerText = this.damageHP + "/" + this.defaultHP;
 }
 
-function renderProgressbarHP(person) {
-  person.elProgressbar.style.width = person.damageHP + '%';
+function renderProgressbarHP() {
+  this.elProgressbar.style.width = this.damageHP + "%";
 }
 
 function buttonDisabled() {
@@ -43,31 +51,29 @@ function buttonDisabled() {
   $btnKickBolt.disabled = true;
 }
 
-function changeHP(count, person) {
-  if (person.damageHP < count) {
-    person.damageHP = 0;
-    person.img.style.backgroundColor = 'red';
-    alert('Бедный ' + person.name + ' проиграл бой')
+function changeHP(count) {
+  if (this.damageHP < count) {
+    this.damageHP = 0;
+    this.img.style.backgroundColor = "red";
+    alert("Бедный " + this.name + " проиграл бой");
     buttonDisabled();
   } else {
-    person.damageHP -= count;
+    this.damageHP -= count;
   }
-  renderHP(person);
+  this.renderHP();
 }
 
 function random(num) {
-  return Math.ceil(Math.random() * num)
+  return Math.ceil(Math.random() * num);
 }
 
 function setEventListener(num) {
-  console.log('Kick');
-  changeHP(random(num), character);
-  changeHP(random(num), enemy);
+  console.log("Kick");
+  character.changeHP(random(num));
+  enemy.changeHP(random(num));
 }
 
 init();
 
-$btnKickJolt.addEventListener('click', () => setEventListener(15));
-$btnKickBolt.addEventListener('click', () => setEventListener(25));
-
-
+$btnKickJolt.addEventListener("click", () => setEventListener(15));
+$btnKickBolt.addEventListener("click", () => setEventListener(25));
