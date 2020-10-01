@@ -13,11 +13,7 @@ const secondRow = 'собака друг человека';
 
 function getRow(firstRow, secondRow) {
 }
-<<<<<<< HEAD
-console.log(getRow(firstRow, secondRow)); // _мама _мыла _раму_
-=======
 console.log(getRow(firstRow, secondRow)); // _мама мыла раму_
->>>>>>> 67a57b2c44b84ec3eb57bede8f4d0d8fccdd5b79
 
 ### Задание под *
 * можешь сделать программу интерактивной, используя команды prompt() и alert().
@@ -44,11 +40,7 @@ console.log(getRow(firstRow, secondRow)); // _мама мыла раму_
 
 function formattedPhone(phone) {
 }
-<<<<<<< HEAD
-console.log(formattedPhone('+71234567890')); // _+7 _(123) _456-78-90_
-=======
 console.log(formattedPhone('+71234567890')); // _+7 (123) 456-78-90_
->>>>>>> 67a57b2c44b84ec3eb57bede8f4d0d8fccdd5b79
 
 ### Задание под *
 * можешь сделать программу интерактивной, используя команды prompt() и alert()
