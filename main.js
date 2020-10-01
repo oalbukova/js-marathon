@@ -116,6 +116,3 @@ init();
 
 $btnKickJolt.addEventListener("click", () => setEventListener(15));
 $btnKickBolt.addEventListener("click", () => setEventListener(25));
-
-
-
