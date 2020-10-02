@@ -65,16 +65,15 @@ function winnerText(player1, player2) {
 }
 
 function changeHP(count) {
-  const damage = this.damageHP -= count;
+  this.damageHP -= count;
   const log =
     this === enemy
       ? generateLog(this, character)
       : generateLog(this, enemy);
-
-
   const $logs = document.querySelector('#logs');
   const $p = document.createElement('p');
-  $p.innerText = `${log + ' ' + '-' + count +',' + ' ' + '[' + this.damageHP + "/" + this.defaultHP + ']'}`;
+
+  $p.innerText = `${log} -${count}, [${this.damageHP}/${this.defaultHP}]`
   $logs.insertBefore($p, $logs.children[0]);
   if (this.damageHP <= count) {
     this.damageHP = 0;
@@ -104,7 +103,6 @@ function generateLog(firstPerson, secondPerson) {
   ];
   return logs[random(logs.length - 1)];
 }
-
 
 function setEventListener(num) {
   console.log("Kick");
