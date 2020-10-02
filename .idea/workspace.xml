@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af2e3e97-59d3-489b-bbe7-5cf57d297a36" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs.js/logs.js" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
@@ -61,7 +65,12 @@
       <updated>1601078090991</updated>
       <workItem from="1601078092340" duration="16037000" />
       <workItem from="1601228159974" duration="17000" />
+<<<<<<< Updated upstream
       <workItem from="1601576480171" duration="4923000" />
+=======
+      <workItem from="1601576480171" duration="6717000" />
+      <workItem from="1601628253878" duration="2032000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
