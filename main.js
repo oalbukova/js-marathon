@@ -108,7 +108,7 @@ const countClick = (btn, btnTextContent) => {
   let count = 0;
   return function () {
     count ++;
-    if (count > 6) {
+    if (count >= 6) {
       btn.innerText = `${btnTextContent} (0)`;
       buttonDisabled(btn);
     } else {
