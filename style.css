@@ -538,7 +538,7 @@ h1 {
 }
 
 .logs-container {
-  padding: 20px;
+  padding: 10px;
   background-color: rgba(255,255,255, .5);
   margin: 0 auto 50px;
   overflow-y: scroll;
@@ -547,6 +547,7 @@ h1 {
   position: relative;
   border: 2mm ridge rgba(255, 197, 91, .6);
   border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
 }
 
 .logs-title {

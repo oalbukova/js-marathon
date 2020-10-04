@@ -111,15 +111,15 @@ function setEventListener(num) {
 }
 
 function countClick(btn, btnTextContent) {
-  let a = 0;
+  let count = 0;
   return function () {
-    a += 1;
-    if (a >= 6) {
+    count ++;
+    if (count >= 6) {
       btn.innerText = `${btnTextContent} (0)`;
       buttonDisabled(btn);
     } else {
-      btn.innerText = `${btnTextContent} (${6 - a})`;
-      console.log(a)
+      btn.innerText = `${btnTextContent} (${6 - count})`;
+      console.log(count)
     }
   }
 }
