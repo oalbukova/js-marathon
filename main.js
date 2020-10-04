@@ -30,7 +30,7 @@ const enemy = {
 const {name, ...rest} = character;
 const {name: nameEnemy, ...restEnemy} = enemy;
 
-function init() {
+const init = () => {
   console.log("Start Game!");
   character.renderHP();
   enemy.renderHP();
@@ -49,18 +49,12 @@ function renderProgressbarHP() {
   this.elProgressbar.style.width = this.damageHP + "%";
 }
 
-function buttonDisabled(btn) {
+const buttonDisabled = (btn) => {
   btn.disabled = true;
 }
 
-function winnerText(player1, player2) {
-  return (
-    "Бедный " +
-    player1 +
-    " проиграл бой!  А счастливый " +
-    player2 +
-    " выиграл!"
-  );
+const winnerText = (player1, player2) => {
+  return (`Бедный ${player1} проиграл бой!  А счастливый ${player2} выиграл!`)
 }
 
 function changeHP(count) {
@@ -84,11 +78,11 @@ function changeHP(count) {
   this.renderHP();
 }
 
-function random(num) {
+const random = (num) => {
   return Math.ceil(Math.random() * num);
 }
 
-function generateLog(firstPerson, secondPerson) {
+const generateLog = (firstPerson, secondPerson) => {
   const logs = [
     `${firstPerson.name} вспомнил что-то важное, но неожиданно ${secondPerson.name}, не помня себя от испуга, ударил в предплечье врага.`,
     `${firstPerson.name} поперхнулся, и за это ${secondPerson.name} с испугу приложил прямой удар коленом в лоб врага.`,
@@ -104,13 +98,13 @@ function generateLog(firstPerson, secondPerson) {
   return logs[random(logs.length - 1)];
 }
 
-function setEventListener(num) {
+const setEventListener = (num) => {
   console.log("Kick");
   character.changeHP(random(num));
   enemy.changeHP(random(num));
 }
 
-function countClick(btn, btnTextContent) {
+const countClick = (btn, btnTextContent) => {
   let count = 0;
   return function () {
     count ++;
