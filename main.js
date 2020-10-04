@@ -8,10 +8,10 @@ const character = {
   damageHP: 100,
   elHP: document.getElementById("health-character"),
   elProgressbar: document.getElementById("progressbar-character"),
-  renderHPLife: renderHPLife,
-  renderProgressbarHP: renderProgressbarHP,
-  renderHP: renderHP,
-  changeHP: changeHP,
+  renderHPLife,
+  renderProgressbarHP,
+  renderHP,
+  changeHP,
 };
 
 const enemy = {
@@ -21,10 +21,10 @@ const enemy = {
   damageHP: 100,
   elHP: document.getElementById("health-enemy"),
   elProgressbar: document.getElementById("progressbar-enemy"),
-  renderHPLife: renderHPLife,
-  renderProgressbarHP: renderProgressbarHP,
-  renderHP: renderHP,
-  changeHP: changeHP,
+  renderHPLife,
+  renderProgressbarHP,
+  renderHP,
+  changeHP,
 };
 
 const {name, ...rest} = character;
@@ -49,9 +49,8 @@ function renderProgressbarHP() {
   this.elProgressbar.style.width = this.damageHP + "%";
 }
 
-function buttonDisabled() {
-  $btnKickJolt.disabled = true;
-  $btnKickBolt.disabled = true;
+function buttonDisabled(btn) {
+  btn.disabled = true;
 }
 
 function winnerText(player1, player2) {
@@ -79,7 +78,8 @@ function changeHP(count) {
     this.damageHP = 0;
     this.img.style.backgroundColor = "red";
     alert(winnerText(name, nameEnemy));
-    buttonDisabled();
+    buttonDisabled($btnKickJolt);
+    buttonDisabled($btnKickBolt);
   }
   this.renderHP();
 }
@@ -110,7 +110,30 @@ function setEventListener(num) {
   enemy.changeHP(random(num));
 }
 
+function countClick(btn, btnTextContent) {
+  let a = 0;
+  return function () {
+    a += 1;
+    if (a >= 6) {
+      btn.innerText = `${btnTextContent} (0)`;
+      buttonDisabled(btn);
+    } else {
+      btn.innerText = `${btnTextContent} (${6 - a})`;
+      console.log(a)
+    }
+  }
+}
+
+const countClickJolt = countClick($btnKickJolt, 'Thunder Jolt');
+const countClickBolt = countClick($btnKickBolt, 'Thunder Bolt');
+
 init();
 
-$btnKickJolt.addEventListener("click", () => setEventListener(15));
-$btnKickBolt.addEventListener("click", () => setEventListener(25));
+$btnKickJolt.addEventListener("click", () => {
+  setEventListener(15);
+  countClickJolt();
+});
+$btnKickBolt.addEventListener("click", () => {
+  setEventListener(25);
+  countClickBolt();
+});
