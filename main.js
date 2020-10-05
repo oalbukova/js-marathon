@@ -57,17 +57,22 @@ const winnerText = (player1, player2) => {
   return (`Бедный ${player1} проиграл бой!  А счастливый ${player2} выиграл!`)
 }
 
+function insertLog (log, damageHP, defaultHP) {
+  const $logs = document.querySelector('#logs');
+  const $p = document.createElement('p');
+  $p.innerText = `${log}, [${damageHP}/${defaultHP}]`
+  $logs.insertBefore($p, $logs.children[0]);
+}
+
 function changeHP(count) {
   this.damageHP -= count;
   const log =
     this === enemy
       ? generateLog(this, character, count)
       : generateLog(this, enemy, count);
-  const $logs = document.querySelector('#logs');
-  const $p = document.createElement('p');
 
-  $p.innerText = `${log}, [${this.damageHP}/${this.defaultHP}]`
-  $logs.insertBefore($p, $logs.children[0]);
+  insertLog(log, this.damageHP, this.defaultHP);
+
   if (this.damageHP <= count) {
     this.damageHP = 0;
     this.img.style.backgroundColor = "red";
@@ -78,8 +83,9 @@ function changeHP(count) {
   this.renderHP();
 }
 
-const random = (num) => {
-  return Math.ceil(Math.random() * num);
+const random = (max, min=0) => {
+  const num = max-min;
+  return Math.ceil(Math.random() * num) + min;
 }
 
 const generateLog = (firstPerson, secondPerson, count) => {
@@ -98,36 +104,36 @@ const generateLog = (firstPerson, secondPerson, count) => {
   return logs[random(logs.length - 1)];
 }
 
-const setEventListener = (num) => {
+const setEventListener = (max, min) => {
   console.log("Kick");
-  character.changeHP(random(num));
-  enemy.changeHP(random(num));
+  character.changeHP(random(max, min));
+  enemy.changeHP(random(max, min));
 }
 
-const countClick = (btn, btnTextContent) => {
-  let count = 0;
+function countBtn(count, el) {
+  const innerText = el.innerText;
+  el.innerText = `${innerText} (${count})`;
   return function () {
-    count ++;
-    if (count >= 6) {
-      btn.innerText = `${btnTextContent} (0)`;
-      buttonDisabled(btn);
-    } else {
-      btn.innerText = `${btnTextContent} (${6 - count})`;
-      console.log(count)
+    count--;
+    if (count === 0) {
+      el.disabled = true;
     }
+    el.innerText = `${innerText} (${count})`;
+    return count;
   }
 }
 
-const countClickJolt = countClick($btnKickJolt, 'Thunder Jolt');
-const countClickBolt = countClick($btnKickBolt, 'Thunder Bolt');
+const countClickJolt = countBtn(6, $btnKickJolt);
+const countClickBolt = countBtn(10, $btnKickBolt);
 
 init();
 
 $btnKickJolt.addEventListener("click", () => {
-  setEventListener(15);
   countClickJolt();
+  setEventListener(60,20);
 });
 $btnKickBolt.addEventListener("click", () => {
-  setEventListener(25);
   countClickBolt();
+  setEventListener(20, 0);
+
 });
