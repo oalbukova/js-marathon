@@ -57,10 +57,10 @@ const winnerText = (player1, player2) => {
   return (`Бедный ${player1} проиграл бой!  А счастливый ${player2} выиграл!`)
 }
 
-function insertLog (log, damageHP, defaultHP) {
+function insertLog (log) {
   const $logs = document.querySelector('#logs');
   const $p = document.createElement('p');
-  $p.innerText = `${log}, [${damageHP}/${defaultHP}]`
+  $p.innerText = `${log}`
   $logs.insertBefore($p, $logs.children[0]);
 }
 
@@ -68,10 +68,10 @@ function changeHP(count) {
   this.damageHP -= count;
   const log =
     this === enemy
-      ? generateLog(this, character, count)
-      : generateLog(this, enemy, count);
+    ? generateLog(this, character, count, this.damageHP, this.defaultHP)
+    : generateLog(this, enemy, count, this.damageHP, this.defaultHP);
 
-  insertLog(log, this.damageHP, this.defaultHP);
+  insertLog(log);
 
   if (this.damageHP <= count) {
     this.damageHP = 0;
@@ -88,18 +88,18 @@ const random = (max, min=0) => {
   return Math.ceil(Math.random() * num) + min;
 }
 
-const generateLog = (firstPerson, secondPerson, count) => {
+const generateLog = (firstPerson, secondPerson, count, damageHP, defaultHP) => {
   const logs = [
-    `${firstPerson.name} вспомнил что-то важное, но неожиданно ${secondPerson.name}, не помня себя от испуга, ударил в предплечье врага. -${count}`,
-    `${firstPerson.name} поперхнулся, и за это ${secondPerson.name} с испугу приложил прямой удар коленом в лоб врага. -${count}`,
-    `${firstPerson.name} забылся, но в это время наглый ${secondPerson.name}, приняв волевое решение, неслышно подойдя сзади, ударил. -${count}`,
-    `${firstPerson.name} пришел в себя, но неожиданно ${secondPerson.name} случайно нанес мощнейший удар. -${count}`,
-    `${firstPerson.name} поперхнулся, но в это время ${secondPerson.name} нехотя раздробил кулаком <вырезанно цензурой> противника. -${count}`,
-    `${firstPerson.name} удивился, а ${secondPerson.name} пошатнувшись влепил подлый удар. -${count}`,
-    `${firstPerson.name} высморкался, но неожиданно ${secondPerson.name} провел дробящий удар. -${count}`,
-    `${firstPerson.name} пошатнулся, и внезапно наглый ${secondPerson.name} беспричинно ударил в ногу противника. -${count}`,
-    `${firstPerson.name} расстроился, как вдруг, неожиданно ${secondPerson.name} случайно влепил стопой в живот соперника. -${count}`,
-    `${firstPerson.name} пытался что-то сказать, но вдруг, неожиданно ${secondPerson.name} со скуки, разбил бровь сопернику. -${count}`,
+    `${firstPerson.name} вспомнил что-то важное, но неожиданно ${secondPerson.name}, не помня себя от испуга, ударил в предплечье врага. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} поперхнулся, и за это ${secondPerson.name} с испугу приложил прямой удар коленом в лоб врага. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} забылся, но в это время наглый ${secondPerson.name}, приняв волевое решение, неслышно подойдя сзади, ударил. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} пришел в себя, но неожиданно ${secondPerson.name} случайно нанес мощнейший удар. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} поперхнулся, но в это время ${secondPerson.name} нехотя раздробил кулаком <вырезанно цензурой> противника. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} удивился, а ${secondPerson.name} пошатнувшись влепил подлый удар. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} высморкался, но неожиданно ${secondPerson.name} провел дробящий удар. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} пошатнулся, и внезапно наглый ${secondPerson.name} беспричинно ударил в ногу противника. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} расстроился, как вдруг, неожиданно ${secondPerson.name} случайно влепил стопой в живот соперника. -${count}, [${damageHP}/${defaultHP}]`,
+    `${firstPerson.name} пытался что-то сказать, но вдруг, неожиданно ${secondPerson.name} со скуки, разбил бровь сопернику. -${count}, [${damageHP}/${defaultHP}]`,
   ];
   return logs[random(logs.length - 1)];
 }
