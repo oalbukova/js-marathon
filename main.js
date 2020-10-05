@@ -1,13 +1,26 @@
-const $btnKickJolt = document.getElementById("btn-kick-jolt");
-const $btnKickBolt = document.getElementById("btn-kick-bolt");
+import Pokemon from "./Pokemon.js";
+
+const player1 = new Pokemon({
+  name: ''
+})
+
+function $getElById(id) {
+  return document.getElementById(id);
+}
+
+const $btnKickJolt = $getElById("btn-kick-jolt");
+const $btnKickBolt = $getElById("btn-kick-bolt");
 
 const character = {
   name: "Picachu",
   img: document.querySelector(".character"),
   defaultHP: 100,
   damageHP: 100,
-  elHP: document.getElementById("health-character"),
-  elProgressbar: document.getElementById("progressbar-character"),
+  type: 'electric',
+  weakness: ['fighting', 'water'],
+  resistance: ['steel'],
+  elHP: $getElById("health-character"),
+  elProgressbar: $getElById("progressbar-character"),
   renderHPLife,
   renderProgressbarHP,
   renderHP,
@@ -19,8 +32,8 @@ const enemy = {
   img: document.querySelector(".enemy"),
   defaultHP: 100,
   damageHP: 100,
-  elHP: document.getElementById("health-enemy"),
-  elProgressbar: document.getElementById("progressbar-enemy"),
+  elHP: $getElById("health-enemy"),
+  elProgressbar: $getElById("progressbar-enemy"),
   renderHPLife,
   renderProgressbarHP,
   renderHP,
