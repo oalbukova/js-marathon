@@ -12,6 +12,23 @@ body {
   color: black;
   position: relative;
   background: red;
+  background: -webkit-linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+  background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Heebo", sans-serif;
+  background: url(./assets/Parkscene_Background.png) center bottom repeat-x, url(./assets/SkyDay.png) center top / cover;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  color: black;
+  position: relative;
+  background: red;
   background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,9 +39,11 @@ body {
   user-select: none;
 }
 
+
 .catch_screen {
   width: 100vw;
   height: 100vh;
+  background: -webkit-linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
   background: linear-gradient(45deg, #d2ffde, #ceefff, #ded1ff);
   position: fixed;
   z-index: 0;
@@ -33,24 +52,53 @@ body {
   left: 0;
   right: 0;
   opacity: .4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
 }
 
 .control {
-  width: 320px;
+  max-width: 320px;
   height: 260px;
   position: relative;
   margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  .control {
+    margin: auto;
+  }
 }
 
 .playground {
   max-width: 1024px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin: 30px auto;
+}
+
+@media (max-width: 600px) {
+  .playground {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-line-pack: center;
+    align-content: center;
+  }
 }
 
 .arrow {
@@ -72,6 +120,7 @@ body {
   left: 0;
   top: 0;
   -webkit-filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4));
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur in="SourceAlpha" stdDeviation="3" /><feOffset dx="1" dy="3" result="offsetblur" /><feFlood flood-color="rgba(0,0,0,0.4)" /><feComposite in2="offsetblur" operator="in" /><feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge></filter></svg>#filter');
   filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4));
   -webkit-animation: smoosh 0.7s ease infinite;
   animation: smoosh 0.7s ease infinite;
@@ -79,11 +128,14 @@ body {
 
 .pokes {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: wrap;
+  -ms-flex: wrap;
   flex: wrap;
   width: 100%;
   -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 30px;
 }
@@ -94,26 +146,35 @@ body {
   width: 180px;
   height: 260px;
   min-width: 150px;
-  margin: 20px;
+  margin: 20px 0;
   background-image: url(./assets/card.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
-.pokemon::before {
+@media (max-width: 600px) {
+  .pokemon {
+    margin: auto;
+  }
+}
+
+.pokemon:before {
   content: "";
   display: block;
   position: absolute;
   opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   width: 76%;
   height: 53%;
   left: 12%;
   top: 47%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   background-image: url(./assets/pockeball.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .pokemon * {
@@ -137,6 +198,7 @@ body {
 .pokemon .radio {
   position: absolute;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
 .pokemon .lvl {
@@ -211,16 +273,19 @@ body {
   width: 50%;
   height: 100%;
   background: -webkit-gradient(linear, left top, right top, from(lime), to(#8bf500));
+  background: -webkit-linear-gradient(left, lime, #8bf500);
   background: linear-gradient(to right, lime, #8bf500);
 }
 
 .pokemon .details .hp .bar .health.low {
   background: -webkit-gradient(linear, left top, right top, from(#ffcc00), to(#f1f500));
+  background: -webkit-linear-gradient(left, #ffcc00, #f1f500);
   background: linear-gradient(to right, #ffcc00, #f1f500);
 }
 
 .pokemon .details .hp .bar .health.critical {
   background: -webkit-gradient(linear, left top, right top, from(#d20000), to(#f51700));
+  background: -webkit-linear-gradient(left, #d20000, #f51700);
   background: linear-gradient(to right, #d20000, #f51700);
 }
 
@@ -228,6 +293,7 @@ body {
   position: absolute;
   fill: white;
   opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   width: 76%;
@@ -276,6 +342,7 @@ body {
 
 .pokemon.selected .cell {
   -webkit-filter: drop-shadow(0px 2px 6px white);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur in="SourceAlpha" stdDeviation="6" /><feOffset dx="1" dy="3" result="offsetblur" /><feFlood flood-color="rgba(255,255,255,1)" /><feComposite in2="offsetblur" operator="in" /><feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge></filter></svg>#filter');
   filter: drop-shadow(0px 2px 6px white);
   -webkit-transform: scale(1.02);
   transform: scale(1.02);
@@ -288,6 +355,7 @@ body {
 
 .pokemon.selected .pokeball {
   opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 }
 
 .pokemon.selected .sprite {
@@ -324,12 +392,14 @@ body {
 
 .button:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffd78e), to(#ffc55b));
+  background: -webkit-linear-gradient(top, #ffd78e, #ffc55b);
   background: linear-gradient(to bottom, #ffd78e, #ffc55b);
   border-color: white;
 }
 
 .button:hover:after {
   background: -webkit-gradient(linear, left top, left bottom, from(#ffd78e), to(#ffc55b));
+  background: -webkit-linear-gradient(top, #ffd78e, #ffc55b);
   background: linear-gradient(to bottom, #ffd78e, #ffc55b);
   box-shadow: 0 0 5px 2px white, 0 0 15px #ffe9c1, 0 3px 5px -2px rgba(0, 0, 0, 0.2);
 }
@@ -353,26 +423,31 @@ body {
 
 .candy.mighty {
   -webkit-filter: hue-rotate(300deg) saturate(2.2);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="300" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1.9444000000000004 -0.858 -0.08640000000000002 0 0 -0.25560000000000005 1.3639999999999999 -0.08640000000000002 0 0 -0.25560000000000005 -0.858 2.1136000000000004 0 0 0 0 0 1 0" /></filter></svg>#filter');
   filter: hue-rotate(300deg) saturate(2.2);
 }
 
 .candy.smart {
   -webkit-filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="200" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1.01 0 0 0 0 0 1 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.65" /><feFuncG type="linear" slope="0.65" /><feFuncB type="linear" slope="0.65" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="3" intercept="-1" /><feFuncG type="linear" slope="3" intercept="-1" /><feFuncB type="linear" slope="3" intercept="-1" /></feComponentTransfer></filter></svg>#filter');
   filter: hue-rotate(200deg) saturate(1) brightness(0.65) contrast(3);
 }
 
 .candy.tough {
   -webkit-filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="170" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1.01 0 0 0 0 0 1 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.65" /><feFuncG type="linear" slope="0.65" /><feFuncB type="linear" slope="0.65" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="3.1" intercept="-1.05" /><feFuncG type="linear" slope="3.1" intercept="-1.05" /><feFuncB type="linear" slope="3.1" intercept="-1.05" /></feComponentTransfer></filter></svg>#filter');
   filter: hue-rotate(170deg) saturate(1) brightness(0.65) contrast(3.1);
 }
 
 .candy.courage {
   -webkit-filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="40" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1.01 0 0 0 0 0 1 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.8" /><feFuncG type="linear" slope="0.8" /><feFuncB type="linear" slope="0.8" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="2" intercept="-0.5" /><feFuncG type="linear" slope="2" intercept="-0.5" /><feFuncB type="linear" slope="2" intercept="-0.5" /></feComponentTransfer></filter></svg>#filter');
   filter: hue-rotate(40deg) saturate(1) brightness(0.8) contrast(2);
 }
 
 .candy.quick {
   -webkit-filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="140" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1.01 0 0 0 0 0 1 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.8" /><feFuncG type="linear" slope="0.8" /><feFuncB type="linear" slope="0.8" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.8" intercept="-0.4" /><feFuncG type="linear" slope="1.8" intercept="-0.4" /><feFuncB type="linear" slope="1.8" intercept="-0.4" /></feComponentTransfer></filter></svg>#filter');
   filter: hue-rotate(140deg) saturate(1) brightness(0.8) contrast(1.8);
 }
 
@@ -503,18 +578,22 @@ h1 {
 
 .logo {
   max-width: 240px;
-  margin: 30px 20px 0;
+  margin: 30px auto 0;
 }
 
 .body {
   position: relative;
   z-index: 1;
+  padding: 0 20px;
 }
 
-
 .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -523,12 +602,21 @@ h1 {
 }
 
 .column {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 0 24px;
 }
@@ -537,9 +625,21 @@ h1 {
   padding: 6px 0;
 }
 
-.logs {
-  margin: 0 auto;
+.logs-container {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, .5);
+  margin: 0 auto 50px;
+  overflow-y: scroll;
   max-width: 900px;
-  color: rgba(25, 25, 112, 1);
+  height: 400px;
+  position: relative;
+  border: 2mm ridge rgba(255, 197, 91, .6);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
+}
+
+.logs-title {
+  font-size: 16px;
+  font-weight: 600;
 }
 
