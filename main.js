@@ -68,8 +68,8 @@ function changeHP(count) {
   this.damageHP -= count;
   const log =
     this === enemy
-    ? generateLog(this, character, count, this.damageHP, this.defaultHP)
-    : generateLog(this, enemy, count, this.damageHP, this.defaultHP);
+      ? generateLog(this, character, count, this.damageHP, this.defaultHP)
+      : generateLog(this, enemy, count, this.damageHP, this.defaultHP);
 
   insertLog(log);
 
