@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Pokemon;
+  src: url(./font/Pokemon.ttf) format("truetype");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -177,10 +182,6 @@ body {
   background-size: cover;
 }
 
-.pokemon * {
-  vertical-align: middle;
-}
-
 .pokemon .card {
   max-width: 100%;
 }
@@ -257,7 +258,6 @@ body {
 .pokemon .details .hp .text {
   color: #666;
   display: inline-block;
-  padding-top: 4px;
   font-size: 14px;
 }
 
@@ -364,6 +364,7 @@ body {
 }
 
 .button {
+  font-family: Pokemon;
   position: relative;
   background: white;
   border: 2px solid #ffc55b;
@@ -582,6 +583,7 @@ h1 {
 }
 
 .body {
+  font-family: Pokemon;
   position: relative;
   z-index: 1;
   padding: 0 20px;
@@ -627,6 +629,7 @@ h1 {
 
 .logs-container {
   padding: 10px;
+  color: rgb(120, 120, 120);
   background-color: rgba(255, 255, 255, .5);
   margin: 0 auto 50px;
   overflow-y: scroll;
@@ -639,6 +642,7 @@ h1 {
 }
 
 .logs-title {
+  color: #222222;
   font-size: 16px;
   font-weight: 600;
 }
