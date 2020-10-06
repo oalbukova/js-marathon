@@ -10,8 +10,8 @@ const $btnKickBolt = $getElById("btn-kick-bolt");
 const player1 = new Pokemon({
   name: 'Picachu',
   img: document.querySelector(".character"),
-  defaultHP: 100,
-  damageHP: 100,
+  defaultHP: 150,
+  damageHP: 150,
   type: 'electric',
   selectors: 'character',
 })
@@ -19,8 +19,8 @@ const player1 = new Pokemon({
 const player2 = new Pokemon({
   name: 'Charmander',
   img: document.querySelector(".enemy"),
-  defaultHP: 100,
-  damageHP: 100,
+  defaultHP: 150,
+  damageHP: 150,
   type: 'fire',
   selectors: 'enemy',
 })
