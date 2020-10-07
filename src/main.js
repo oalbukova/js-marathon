@@ -95,8 +95,6 @@ const setEventListener = (max, min) => {
   }, $btnKickJolt, $btnKickBolt, player2.name, player1.name);
 }
 
-init();
-
 $btnKickJolt.addEventListener("click", () => {
   countClickJolt();
   setEventListener(60, 20);
@@ -105,6 +103,8 @@ $btnKickBolt.addEventListener("click", () => {
   countClickBolt();
   setEventListener(20, 0);
 });
+
+init();
 
 
 
