@@ -8,11 +8,13 @@ const bulbasaur = pokemons.find(item => item.name === 'Bulbasaur');
 // const $elImg = document.getElementById('img-player1');
 // $elImg.src = pokemons[0].img;
 const $control = document.querySelector('.control');
+
 const allSpan = document.querySelectorAll('.lvl');
 const allImg = document.querySelectorAll('.sprite');
 const names = document.querySelectorAll('.name');
 const details = document.querySelector('.details');
 const textHP = document.querySelectorAll('.text');
+const bar = document.querySelectorAll('.bar');
 
 
 
@@ -24,6 +26,7 @@ allSpan.forEach($item => $item.remove());
 allImg.forEach($item => $item.remove());
 names.forEach($item => $item.remove());
 textHP.forEach($item => $item.remove());
+bar.forEach($item => $item.style.display = 'none');
 // const allButtons = document.querySelectorAll('.button');
 // allButtons.forEach($item => $item.remove());
 
@@ -34,7 +37,7 @@ btnStart.addEventListener('click', () => {
   title.innerText = 'Выбрать своего покемона';
   $control.appendChild(title);
   pokemons.forEach(item => {
-    console.log(item);
+ //   console.log(item);
     const $btn = document.createElement('button');
     $btn.classList.add('img-button');
     $btn.classList.add('button');
@@ -51,9 +54,7 @@ btnStart.addEventListener('click', () => {
     $btn.appendChild($text);
 
     $btn.addEventListener('click', () => {
-      console.log( $text.innerText)
       title.remove();
-   //   pokemonContainer.forEach($item => $item.style.display = 'flex')
       const allButtons = document.querySelectorAll('.control .button');
       allButtons.forEach($item => $item.remove());
 
@@ -71,10 +72,15 @@ btnStart.addEventListener('click', () => {
       $textHp.classList.add('text');
       $textHp.innerText = item.hp +'/' +item.hp;
       document.querySelector('.hp').appendChild($textHp);
-
+      bar.forEach($item => $item.style.display = 'block');
 
       attack(item)
     })
+    
+    const generatePlayer = () => {
+      return pokemons[random(pokemons.length - 1)];
+    }
+
 
   })
 })
@@ -98,7 +104,7 @@ let player2 = new Pokemon({
 
 function attack(player1) {
 player1.attacks.forEach(item => {
-  console.log(item);
+ // console.log(item);
   const $btn = document.createElement('button');
   $btn.classList.add('button');
   $btn.innerText = item.name;
