@@ -2,37 +2,37 @@ class Selectors {
   constructor(name) {
     this.elHP = document.getElementById(`health-${name}`);
     this.elProgressbar = document.getElementById(`progressbar-${name}`);
+   // this.elName = document.getElementById(name-${name});
   }
 }
 
 class Pokemon extends Selectors {
-  constructor({name, img, defaultHP, damageHP, type, selectors}) {
+  constructor({name, img, hp, type, selectors, attacks}) {
     super(selectors);
 
     this.name = name;
     this.img = img;
-    this.defaultHP = defaultHP;
-    this.damageHP = damageHP;
+    this.hp = {
+      current: hp,
+      total: hp,
+    }
     this.type = type;
+    this.attacks = attacks;
 
     this.renderHP();
   }
 
-  changeHP = (count, cb, btn1, btn2, name1, name2) => {
-    this.damageHP -= count;
-    const buttonDisabled = (btn) => {
-      btn.disabled = true;
-    }
+  changeHP = (count, cb, btn, name1, name2) => {
+    this.hp.current -= count;
     const winnerText = () => {
       return (`Бедный ${name1} проиграл бой!  А счастливый ${name2} выиграл!`)
     }
 
-    if (this.damageHP <= 0) {
-      this.damageHP = 0;
-      this.img.style.backgroundColor = "red";
+    if (this.hp.current <= 0) {
+      this.hp.current = 0;
+  //    this.img.style.backgroundColor = "red";
       alert(winnerText(name1, name2));
-      buttonDisabled(btn1);
-      buttonDisabled(btn2);
+      btn.disabled = true;
     }
     this.renderHP();
     cb && cb(count);
@@ -44,14 +44,16 @@ class Pokemon extends Selectors {
   }
 
   renderHPLife = () => {
-    this.elHP.innerText = this.damageHP + "/" + this.defaultHP;
+    const {elHP, hp: {current, total}} = this;
+    elHP.innerText = current + "/" + total;
   }
 
   renderProgressbarHP = () => {
-    this.elProgressbar.style.width = this.damageHP + "%";
+    const {elProgressbar, hp: {current, total}} = this;
+    const procent = current / (total / 100);
+    elProgressbar.style.width = procent + "%";
   }
 }
-
 export default Pokemon;
 
 
