@@ -8,11 +8,22 @@ const bulbasaur = pokemons.find(item => item.name === 'Bulbasaur');
 // const $elImg = document.getElementById('img-player1');
 // $elImg.src = pokemons[0].img;
 const $control = document.querySelector('.control');
-//const pokemonContainer = document.querySelectorAll('.pokemon');
+const allSpan = document.querySelectorAll('.lvl');
+const allImg = document.querySelectorAll('.sprite');
+const names = document.querySelectorAll('.name');
+const details = document.querySelector('.details');
+const textHP = document.querySelectorAll('.text');
+
+
 
 const btnStart = document.querySelector('#button-start')
+const player1Container = document.querySelector('.player1')
 
-//pokemonContainer.forEach($item => $item.style.display = 'none');
+
+allSpan.forEach($item => $item.remove());
+allImg.forEach($item => $item.remove());
+names.forEach($item => $item.remove());
+textHP.forEach($item => $item.remove());
 // const allButtons = document.querySelectorAll('.button');
 // allButtons.forEach($item => $item.remove());
 
@@ -35,7 +46,6 @@ btnStart.addEventListener('click', () => {
     $text.classList.add('img-text');
     $text.innerText = item.name;
 
-
     $control.appendChild($btn);
     $btn.appendChild($img);
     $btn.appendChild($text);
@@ -46,7 +56,24 @@ btnStart.addEventListener('click', () => {
    //   pokemonContainer.forEach($item => $item.style.display = 'flex')
       const allButtons = document.querySelectorAll('.control .button');
       allButtons.forEach($item => $item.remove());
-      attack()
+
+      const $imgPlayer1 = document.createElement('img');
+      $imgPlayer1.classList.add('sprite');
+      $imgPlayer1.src = item.img;
+      player1Container.appendChild($imgPlayer1);
+
+      const $namePlayer1 = document.createElement('h2');
+      $namePlayer1.classList.add('name');
+      $namePlayer1.innerText = item.name;
+      details.insertBefore($namePlayer1, document.querySelector('.hp'));
+
+      const $textHp = document.createElement('span');
+      $textHp.classList.add('text');
+      $textHp.innerText = item.hp +'/' +item.hp;
+      document.querySelector('.hp').appendChild($textHp);
+
+
+      attack(item)
     })
 
   })
@@ -69,7 +96,7 @@ let player2 = new Pokemon({
 })
 
 
-function attack() {
+function attack(player1) {
 player1.attacks.forEach(item => {
   console.log(item);
   const $btn = document.createElement('button');
