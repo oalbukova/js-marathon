@@ -1,9 +1,12 @@
+import {$control } from './constants.js';
+
 class Selectors {
   constructor(name) {
     this.elHP = document.getElementById(`health-${name}`);
     this.elProgressbar = document.getElementById(`progressbar-${name}`);
-   // this.$elImg = document.getElementById(`sprite-${name}`);
-    // this.elName = document.getElementById(name-${name});
+    this.$elImg = document.getElementById(`sprite-${name}`);
+    this.elName = document.getElementById(`name-${name}`);
+    this.$elPokemon = document.getElementById(`pokemon-${name}`);
   }
 }
 
@@ -25,16 +28,30 @@ class Pokemon extends Selectors {
 
   changeHP = (count, cb, btn, name1, name2) => {
     this.hp.current -= count;
+    const allButtons = document.querySelectorAll('.button');
     const winnerText = () => {
       return (`Бедный ${name1} проиграл бой!  А счастливый ${name2} выиграл!`)
+    }
+    const endGame = () => {
+      allButtons.forEach($item => $item.remove());
+
+      const $btn = document.createElement('a');
+      $btn.classList.add('button');
+      $btn.innerText = 'Поиграем еще?';
+      $btn.setAttribute('href', '../index.html')
+      $control.appendChild($btn);
+
+      const title = document.createElement('h2');
+      title.classList.add('title');
+      title.innerText = winnerText(name1, name2);
+      $control.insertBefore(title, $btn);
+
+      this.$elPokemon.style.background = "red";
     }
 
     if (this.hp.current <= 0) {
       this.hp.current = 0;
-   //   this.$elImg.style.background = "red";
-      const allButtons = document.querySelectorAll('.button');
-      allButtons.forEach($item => $item.remove());
-      alert(winnerText(name1, name2));
+      endGame();
     }
     this.renderHP();
     cb && cb(count);
@@ -43,6 +60,7 @@ class Pokemon extends Selectors {
   renderHP = () => {
     this.renderHPLife();
     this.renderProgressbarHP();
+    this.renderInfo();
   }
 
   renderHPLife = () => {
@@ -50,18 +68,23 @@ class Pokemon extends Selectors {
     elHP.innerText = current + "/" + total;
   }
 
+  renderInfo = () => {
+    this.elName.innerText = this.name;
+    this.$elImg.src = this.img;
+  }
+
   renderProgressbarHP = () => {
     const {elProgressbar, hp: {current, total}} = this;
     const procent = current / (total / 100);
     elProgressbar.style.width = procent + "%";
-    if (current <=150 && current >= 80) {
-      elProgressbar.classList.add ('low')
-    }
-    else if (current < 80) {
-      elProgressbar.classList.add ('critical')
+    if (current <= 150 && current >= 80) {
+      elProgressbar.classList.add('low')
+    } else if (current < 80) {
+      elProgressbar.classList.add('critical')
     }
   }
 }
+
 export default Pokemon;
 
 

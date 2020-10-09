@@ -372,6 +372,12 @@ body {
   width: 181px;
 }
 
+@media (max-width: 768px) {
+  .button {
+    margin: 10px auto;
+  }
+}
+
 .button:after {
   content: "";
   position: absolute;
@@ -671,4 +677,9 @@ h1 {
   margin: 51px auto 0;
   color: rgb(120, 120, 120);
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+
 
