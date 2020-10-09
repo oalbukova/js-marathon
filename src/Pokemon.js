@@ -30,7 +30,7 @@ class Pokemon extends Selectors {
     this.hp.current -= count;
     const allButtons = document.querySelectorAll('.button');
     const winnerText = () => {
-      return (`Бедный ${name1} проиграл бой!  А счастливый ${name2} выиграл!`)
+      return (`Бедный ${name1} пал на поле боя! `)
     }
     const endGame = () => {
       allButtons.forEach($item => $item.remove());

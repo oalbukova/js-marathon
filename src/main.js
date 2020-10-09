@@ -5,14 +5,6 @@ import {$control,allSpan, pokemonContainer, btnStart, $btn } from './constants.j
 
 pokemonContainer.forEach($item => $item.style.display = 'none');
 
-const secondPlayer = pokemons[random(pokemons.length - 1)];
-const pokemonName = pokemons.find(item => item.name === secondPlayer .name);
-
-let player2 = new Pokemon({
-  ...pokemonName,
-  selectors: 'player2',
-})
-
 const createTitle = (titleText) => {
   const title = document.createElement('h2');
   title.classList.add('title');
@@ -42,10 +34,21 @@ btnStart.addEventListener('click', () => {
     $btn.appendChild($text);
 
     $btn.addEventListener('click', () => {
+
+      pokemons.splice(pokemons.indexOf(item, 0), 1);
+      const secondPlayer = pokemons[random(pokemons.length - 1)];
+      const pokemonName = pokemons.find(elem => elem.name === secondPlayer .name);
+
+      let player2 = new Pokemon({
+        ...pokemonName,
+        selectors: 'player2',
+      })
+
       let player1 = new Pokemon({
         ...item,
         selectors: 'player1',
       })
+
       document.querySelector('.title').remove();
       const allButtons = document.querySelectorAll('.control .button');
       allButtons.forEach($item => $item.remove());
