@@ -45,7 +45,7 @@ class Pokemon extends Selectors {
 
   renderHPLife = () => {
     const {elHP, hp: {current, total}} = this;
-    elHP.innerText = current + "/" + total;
+ //   elHP.innerText = current + "/" + total;
   }
 
   renderProgressbarHP = () => {
