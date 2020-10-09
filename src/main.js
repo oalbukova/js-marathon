@@ -2,8 +2,8 @@ import Pokemon from "./Pokemon.js";
 import {random, generateLog, countBtn} from './utils.js';
 import {pokemons} from './pokemons.js';
 
-const pikachu = pokemons.find(item => item.name === 'Pikachu');
-const bulbasaur = pokemons.find(item => item.name === 'Bulbasaur');
+//const pikachu = pokemons.find(item => item.name === 'Pikachu');
+//const bulbasaur = pokemons.find(item => item.name === 'Bulbasaur');
 
 // const $elImg = document.getElementById('img-player1');
 // $elImg.src = pokemons[0].img;
@@ -26,7 +26,7 @@ const player1Container2 = document.querySelector('.player2')
 allSpan.forEach($item => $item.remove());
 allImg.forEach($item => $item.remove());
 names.forEach($item => $item.remove());
-textHP.forEach($item => $item.remove());
+textHP.forEach($item => $item.style.display = 'none');
 bar.forEach($item => $item.style.display = 'none');
 // const allButtons = document.querySelectorAll('.button');
 // allButtons.forEach($item => $item.remove());
@@ -37,7 +37,6 @@ function generatePlayer() {
 
 const secondPlayer = generatePlayer();
 const pokemonName = pokemons.find(item => item.name === secondPlayer .name);
-
 
 
 let player2 = new Pokemon({
@@ -58,7 +57,7 @@ btnStart.addEventListener('click', () => {
   title.innerText = 'Выбрать своего покемона';
   $control.appendChild(title);
   pokemons.forEach(item => {
-    //   console.log(item);
+
     const $btn = document.createElement('button');
     $btn.classList.add('img-button');
     $btn.classList.add('button');
@@ -98,10 +97,8 @@ btnStart.addEventListener('click', () => {
       $namePlayer1.innerText = player1.name;
       details.insertBefore($namePlayer1, document.querySelector('.hp'));
 
-      const $textHp = document.createElement('span');
-      $textHp.classList.add('text');
-      $textHp.innerText = player1.hp.current + '/' + player1.hp.total;
-      document.querySelector('.hp').appendChild($textHp);
+
+      textHP.forEach($item => $item.style.display = 'block');
       bar.forEach($item => $item.style.display = 'block');
 
       const $imgPlayer2 = document.createElement('img');
@@ -116,7 +113,7 @@ btnStart.addEventListener('click', () => {
 
       const $textHp2 = document.createElement('span');
       $textHp2.classList.add('text');
-      $textHp2.innerText = player2.hp.current + '/' + player2.hp.total;
+   //   $textHp2.innerText = player2.hp.current + '/' + player2.hp.total;
       document.querySelector('.hp2').appendChild($textHp2);
 
       attack(player1, player2)
@@ -154,23 +151,6 @@ function attack(player1, player2) {
     $control.appendChild($btn);
   })
 }
-
-
-// function  generatePlayer() {
-//   return pokemons[random(pokemons.length - 1)];
-// }
-// console.log(generatePlayer())
-
-
-// let player1 = new Pokemon({
-//    ...pikachu,
-//   selectors: 'player1',
-// })
-//
-// let player2 = new Pokemon({
-//   ...bulbasaur,
-//   selectors: 'player2',
-// })
 
 
 function insertLog(log) {

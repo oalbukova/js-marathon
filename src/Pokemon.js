@@ -2,7 +2,8 @@ class Selectors {
   constructor(name) {
     this.elHP = document.getElementById(`health-${name}`);
     this.elProgressbar = document.getElementById(`progressbar-${name}`);
-   // this.elName = document.getElementById(name-${name});
+   // this.$elImg = document.getElementById(`sprite-${name}`);
+    // this.elName = document.getElementById(name-${name});
   }
 }
 
@@ -30,9 +31,10 @@ class Pokemon extends Selectors {
 
     if (this.hp.current <= 0) {
       this.hp.current = 0;
-  //    this.img.style.backgroundColor = "red";
+   //   this.$elImg.style.background = "red";
+      const allButtons = document.querySelectorAll('.button');
+      allButtons.forEach($item => $item.remove());
       alert(winnerText(name1, name2));
-      btn.disabled = true;
     }
     this.renderHP();
     cb && cb(count);
@@ -45,13 +47,19 @@ class Pokemon extends Selectors {
 
   renderHPLife = () => {
     const {elHP, hp: {current, total}} = this;
- //   elHP.innerText = current + "/" + total;
+    elHP.innerText = current + "/" + total;
   }
 
   renderProgressbarHP = () => {
     const {elProgressbar, hp: {current, total}} = this;
     const procent = current / (total / 100);
     elProgressbar.style.width = procent + "%";
+    if (current <=150 && current >= 80) {
+      elProgressbar.classList.add ('low')
+    }
+    else if (current < 80) {
+      elProgressbar.classList.add ('critical')
+    }
   }
 }
 export default Pokemon;
