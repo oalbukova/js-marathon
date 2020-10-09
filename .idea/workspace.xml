@@ -19,17 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af2e3e97-59d3-489b-bbe7-5cf57d297a36" name="Default Changelist" comment="">
-<<<<<<< Updated upstream
+    <list default="true" id="4f3027e2-09c7-4f9a-b957-cae2d8cbd5d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.js/logs.js" beforeDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
->>>>>>> Stashed changes
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pokemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pokemon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1i1bY82uFkpVg1hZe1Sika5ciu6" />
+  <component name="ProjectId" id="1iZ8EcYhQ6M5VvcuQjMAAwZhtQQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,30 +40,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="af2e3e97-59d3-489b-bbe7-5cf57d297a36" name="Default Changelist" comment="" />
-      <created>1601078090991</created>
+      <changelist id="4f3027e2-09c7-4f9a-b957-cae2d8cbd5d9" name="Default Changelist" comment="" />
+      <created>1602103643382</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601078090991</updated>
-      <workItem from="1601078092340" duration="16037000" />
-      <workItem from="1601228159974" duration="17000" />
-<<<<<<< Updated upstream
-      <workItem from="1601576480171" duration="4923000" />
-=======
-      <workItem from="1601576480171" duration="6717000" />
-      <workItem from="1601628253878" duration="2032000" />
->>>>>>> Stashed changes
+      <updated>1602103643382</updated>
+      <workItem from="1602103644486" duration="75095000" />
     </task>
     <servers />
   </component>
@@ -87,6 +75,23 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="203" key="#Inspections" timestamp="1602253306317">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="586" y="203" key="#Inspections/0.0.1920.1050@0.0.1920.1050" timestamp="1602253306317" />
+    <state x="0" y="321" width="816" height="729" key="#Intentions" timestamp="1602118438430">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="0" y="321" width="816" height="729" key="#Intentions/0.0.1920.1050@0.0.1920.1050" timestamp="1602118438430" />
+    <state x="1124" y="271" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602265522027">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1124" y="271" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1602265522027" />
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup" timestamp="1602263094876">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602263094876" />
   </component>
 </project>

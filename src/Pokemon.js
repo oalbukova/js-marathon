@@ -1,38 +1,57 @@
+import {$control } from './constants.js';
+
 class Selectors {
   constructor(name) {
     this.elHP = document.getElementById(`health-${name}`);
     this.elProgressbar = document.getElementById(`progressbar-${name}`);
+    this.$elImg = document.getElementById(`sprite-${name}`);
+    this.elName = document.getElementById(`name-${name}`);
+    this.$elPokemon = document.getElementById(`pokemon-${name}`);
   }
 }
 
 class Pokemon extends Selectors {
-  constructor({name, img, defaultHP, damageHP, type, selectors}) {
+  constructor({name, img, hp, type, selectors, attacks}) {
     super(selectors);
 
     this.name = name;
     this.img = img;
-    this.defaultHP = defaultHP;
-    this.damageHP = damageHP;
+    this.hp = {
+      current: hp,
+      total: hp,
+    }
     this.type = type;
+    this.attacks = attacks;
 
     this.renderHP();
   }
 
-  changeHP = (count, cb, btn1, btn2, name1, name2) => {
-    this.damageHP -= count;
-    const buttonDisabled = (btn) => {
-      btn.disabled = true;
-    }
+  changeHP = (count, cb, btn, name1, name2) => {
+    this.hp.current -= count;
+    const allButtons = document.querySelectorAll('.button');
     const winnerText = () => {
-      return (`Бедный ${name1} проиграл бой!  А счастливый ${name2} выиграл!`)
+      return (`Бедный ${name1} пал на поле боя! `)
+    }
+    const endGame = () => {
+      allButtons.forEach($item => $item.remove());
+
+      const $btn = document.createElement('a');
+      $btn.classList.add('button');
+      $btn.innerText = 'Поиграем еще?';
+      $btn.setAttribute('href', '../index.html')
+      $control.appendChild($btn);
+
+      const title = document.createElement('h2');
+      title.classList.add('title');
+      title.innerText = winnerText(name1, name2);
+      $control.insertBefore(title, $btn);
+
+      this.$elPokemon.style.background = "red";
     }
 
-    if (this.damageHP <= 0) {
-      this.damageHP = 0;
-      this.img.style.backgroundColor = "red";
-      alert(winnerText(name1, name2));
-      buttonDisabled(btn1);
-      buttonDisabled(btn2);
+    if (this.hp.current <= 0) {
+      this.hp.current = 0;
+      endGame();
     }
     this.renderHP();
     cb && cb(count);
@@ -41,14 +60,28 @@ class Pokemon extends Selectors {
   renderHP = () => {
     this.renderHPLife();
     this.renderProgressbarHP();
+    this.renderInfo();
   }
 
   renderHPLife = () => {
-    this.elHP.innerText = this.damageHP + "/" + this.defaultHP;
+    const {elHP, hp: {current, total}} = this;
+    elHP.innerText = current + "/" + total;
+  }
+
+  renderInfo = () => {
+    this.elName.innerText = this.name;
+    this.$elImg.src = this.img;
   }
 
   renderProgressbarHP = () => {
-    this.elProgressbar.style.width = this.damageHP + "%";
+    const {elProgressbar, hp: {current, total}} = this;
+    const procent = current / (total / 100);
+    elProgressbar.style.width = procent + "%";
+    if (current <= 150 && current >= 80) {
+      elProgressbar.classList.add('low')
+    } else if (current < 80) {
+      elProgressbar.classList.add('critical')
+    }
   }
 }
 
