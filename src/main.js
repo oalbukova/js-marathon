@@ -82,7 +82,7 @@ function attack(player1, player2) {
           this === player2
             ? generateLog(player1, player2, count)
             : generateLog(player2, player1, count);
-        console.log(item.maxDamage, item.minDamage)
+      //  console.log(item.maxDamage, item.minDamage)
         insertLog(log);
       }, $btn, player2.name, player1.name);
     });
@@ -98,8 +98,6 @@ function insertLog(log) {
 }
 
 startGame()
-
-
 
 
 
