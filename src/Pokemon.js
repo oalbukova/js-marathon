@@ -77,9 +77,9 @@ class Pokemon extends Selectors {
     const {elProgressbar, hp: {current, total}} = this;
     const procent = current / (total / 100);
     elProgressbar.style.width = procent + "%";
-    if (current <= 150 && current >= 80) {
+    if (procent <= 60 && procent >= 35) {
       elProgressbar.classList.add('low')
-    } else if (current < 80) {
+    } else if (procent < 35) {
       elProgressbar.classList.add('critical')
     }
   }
