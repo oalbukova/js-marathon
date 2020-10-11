@@ -96,7 +96,7 @@ export default class Game {
               console.log(damage.kick.player1);
               console.log(damage.kick.player2);
 
-              player1.changeHP(damage.kick.player2,
+              player1.changeHP(damage.kick.player1,
                 function (count) {
                   const log = this === player1
                     ? generateLog(player2, player1, count)
@@ -122,7 +122,7 @@ export default class Game {
                     document.getElementById('pokemon-player1').style.backgroundColor = "red";
                   }
                 }, $btn, player1.name, player2.name);
-              player2.changeHP(damage.kick.player1, function (count) {
+              player2.changeHP(damage.kick.player2, function (count) {
                 const log =
                   this === player2
                     ? generateLog(player1, player2, count)
