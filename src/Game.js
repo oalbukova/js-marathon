@@ -60,8 +60,6 @@ export default class Game {
               ...item,
               selectors: 'player1',
             })
-            player1.hp.total = 200
-            player1.hp.current= 200;
 
             $control.style.maxWidth = '425px';
             document.querySelector('.title').remove();
@@ -160,8 +158,8 @@ export default class Game {
 
 
 
-                     i++;
-                  document.getElementById('lvl-player1').innerText = `Lv. ${i}`;
+                  //    i++;
+                  // document.getElementById('lvl-player1').innerText = `Lv. ${i}`;
 
                   const title = document.createElement('h2');
                   title.classList.add('title');
@@ -170,6 +168,8 @@ export default class Game {
                   document.getElementById('pokemon-player2').style.backgroundColor = "red";
 
                   btnStart.addEventListener('click', () => {
+                    i++;
+                    document.getElementById('lvl-player1').innerText = `Lv. ${i}`;
                     const getNewRendomPokemon = async () => {
                       const response = await fetch('https://reactmarathon-api.netlify.app/api/pokemons?random=true');
                       const body = await response.json();
