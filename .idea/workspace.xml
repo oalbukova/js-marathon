@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f3027e2-09c7-4f9a-b957-cae2d8cbd5d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokemons.js/pokemons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pokemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pokemon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pokemons.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
       <updated>1602103643382</updated>
       <workItem from="1602103644486" duration="82135000" />
       <workItem from="1602324337595" duration="14600000" />
-      <workItem from="1602356895466" duration="6375000" />
+      <workItem from="1602356895466" duration="25523000" />
     </task>
     <servers />
   </component>
@@ -105,9 +102,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1124" y="271" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1602265522027" />
-    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup" timestamp="1602263094876">
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup" timestamp="1602412334510">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602263094876" />
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602412334510" />
   </component>
 </project>

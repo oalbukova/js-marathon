@@ -683,4 +683,9 @@ a {
   color: black;
 }
 
+.button-start {
+  width: 240px;
+  background-color: #ffe2ad;
+}
+
 

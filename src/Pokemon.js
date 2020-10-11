@@ -32,27 +32,27 @@ class Pokemon extends Selectors {
     const winnerText = () => {
       return (`Бедный ${name1} пал на поле боя! `)
     }
-    const endGame = () => {
-      allButtons.forEach($item => $item.remove());
+    // const endGame = () => {
+    //   allButtons.forEach($item => $item.remove());
+    //
+    //   const $btn = document.createElement('a');
+    //   $btn.classList.add('button');
+    //   $btn.innerText = 'Поиграем еще?';
+    //   $btn.setAttribute('href', '../index.html')
+    //   $control.appendChild($btn);
+    //
+    //   const title = document.createElement('h2');
+    //   title.classList.add('title');
+    //   title.innerText = winnerText(name1, name2);
+    //   $control.insertBefore(title, $btn);
+    //
+    //   this.$elPokemon.style.background = "red";
+    // }
 
-      const $btn = document.createElement('a');
-      $btn.classList.add('button');
-      $btn.innerText = 'Поиграем еще?';
-      $btn.setAttribute('href', '../index.html')
-      $control.appendChild($btn);
-
-      const title = document.createElement('h2');
-      title.classList.add('title');
-      title.innerText = winnerText(name1, name2);
-      $control.insertBefore(title, $btn);
-
-      this.$elPokemon.style.background = "red";
-    }
-
-    if (this.hp.current <= 0) {
-      this.hp.current = 0;
-      endGame();
-    }
+    // if (this.hp.current <= 0) {
+    //   this.hp.current = 0;
+    //  // endGame();
+    // }
     this.renderHP();
     cb && cb(count);
   }
