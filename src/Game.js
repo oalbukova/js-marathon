@@ -1,8 +1,3 @@
-//  $elPokemon = document.getElementById(`pokemon-${name}`);
-// function createElement(elem) {
-//   return document.createElement(elem);
-// }
-
 import {$control, allSpan, btnStart, pokemonContainer} from "./constants";
 import {countBtn, generateLog} from "./utils";
 import Pokemon from "./Pokemon.js";
@@ -85,18 +80,21 @@ export default class Game {
           $btn.classList.add('button');
           $btn.innerText = item.name;
           const countClick = countBtn(item.maxCount, $btn);
-
           $btn.addEventListener('click', () => {
             countClick();
             console.log("Kick");
 
             const getDamage = async () => {
-              const response = await fetch('https://reactmarathon-api.netlify.app/api/fight?player1id=25&attackId=1&player2id=1');
+              const response = await fetch(`https://reactmarathon-api.netlify.app/api/fight?player1id=${player1.id}&attackId=${item.id}&player2id=${player2.id}`);
               const body = await response.json();
               return body;
             }
             const getDamagePlayer = async () => {
               const damage = await getDamage();
+              console.log(damage);
+              console.log(damage.kick);
+              console.log(damage.kick.player1);
+              console.log(damage.kick.player2);
 
               player1.changeHP(damage.kick.player2,
                 function (count) {
@@ -107,7 +105,6 @@ export default class Game {
 
                   if (player1.hp.current <= 0) {
                     document.getElementById('health-player1').innerText = '0' + "/" + player1.hp.total;
-
                     const allButtons = document.querySelectorAll('.button');
                     const winnerText = () => {
                       return (`Бедный ${player1.name} пал на поле боя! `)
@@ -124,7 +121,7 @@ export default class Game {
                     $control.insertBefore(title, $btn);
                     document.getElementById('pokemon-player1').style.backgroundColor = "red";
                   }
-                });
+                }, $btn, player1.name, player2.name);
               player2.changeHP(damage.kick.player1, function (count) {
                 const log =
                   this === player2
@@ -132,9 +129,8 @@ export default class Game {
                     : generateLog(player2, player1, count);
                 insertLog(log);
 
-
                 if (player2.hp.current <= 0 && player1.hp.current > 0) {
-                  document.getElementById('health-player2').innerText = '0' + "/" + player1.hp.total;
+                  document.getElementById('health-player2').innerText = '0' + "/" + player2.hp.total;
 
                   const allButtons = document.querySelectorAll('.button');
                   const winnerText = () => {
@@ -154,7 +150,6 @@ export default class Game {
                   btnStart.classList.add('button-start');
                   btnStart.innerText = 'Продолжить?';
                   $control.appendChild(btnStart);
-
 
 
                   const title = document.createElement('h2');
@@ -177,7 +172,6 @@ export default class Game {
                         ...nextRendomPokemon,
                         selectors: 'player2',
                       })
-
                       player1.hp.current = player1.hp.total;
                       document.getElementById('health-player1').innerText = player1.hp.current + "/" + player1.hp.total;
                       document.getElementById('progressbar-player1').style.width = 100 + "%";
@@ -195,15 +189,13 @@ export default class Game {
                     startNextRaund();
                   })
                 }
-
-              });
+              }, $btn, player2.name, player1.name);
             }
             getDamagePlayer();
           });
           $control.appendChild($btn);
         }
       )
-
     }
 
     const insertLog = (log) => {
@@ -212,9 +204,7 @@ export default class Game {
       $p.innerText = `${log}`
       $logs.insertBefore($p, $logs.children[0]);
     }
-
     startGame();
-
   }
 }
 
