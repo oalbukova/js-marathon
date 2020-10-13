@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f3027e2-09c7-4f9a-b957-cae2d8cbd5d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602103643382</updated>
-      <workItem from="1602103644486" duration="78170000" />
+      <workItem from="1602103644486" duration="82135000" />
+      <workItem from="1602324337595" duration="14600000" />
+      <workItem from="1602356895466" duration="40510000" />
     </task>
     <servers />
   </component>
@@ -75,6 +75,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="203" key="#Inspections" timestamp="1602253306317">
@@ -85,13 +86,21 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="0" y="321" width="816" height="729" key="#Intentions/0.0.1920.1050@0.0.1920.1050" timestamp="1602118438430" />
+    <state x="640" y="261" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602356735020">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="640" y="261" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602356735020" />
+    <state x="541" y="412" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602330086732">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="541" y="412" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1602330086732" />
     <state x="1124" y="271" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602265522027">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1124" y="271" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1602265522027" />
-    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup" timestamp="1602263094876">
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup" timestamp="1602412334510">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602263094876" />
+    <state x="664" y="351" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1602412334510" />
   </component>
 </project>
